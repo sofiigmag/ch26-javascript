@@ -68,7 +68,7 @@ const misDatosDePerfil = {
         return this.nombre + " " + this.apellido + " , soy el belicón";
     }
 }
-const misDatosDeInstagram = {
+const miInstagram = {
     // clave: valor
     nombre: "El Belicoso",
     apellido: "666",
@@ -88,4 +88,73 @@ console.log("Nombre: ", misDatosDePerfil.nombre);
 console.log("Música de fin de semana: ", misDatosDePerfil.musicaPreferidaPorGenero.corridosTumbados);
 
 console.log("Nombre completo: ", misDatosDePerfil.nombreCompleto() );
-console.log("Nombre completo: ", misDatosDeInstagram.nombreCompleto() );
+console.log("Nombre completo: ", miInstagram.nombreCompleto() );
+
+// Array
+// Almacena diferentes tipos de datos, su primer elemento es el índice 0
+
+const cancionesPP = [
+    "Soy el Belicón",
+    "El azul",
+    "El Tsurito",
+    "AMG",
+    {
+        2020: 5,
+        2021: 30,
+        2022: 56,
+        total: 91
+    }
+];
+
+console.log("Canción con color: ", cancionesPP[1]); 
+// En los objetos podemos acceder por punto
+console.log("Canciones hechas en el 2021: ", cancionesPP[4].total );
+// En los objetos también podemos acceder por corchete pero poniendo la clave como cadena
+console.log("Canciones hechas en el 2021: ", cancionesPP[4]["total"]);
+console.log("Canciones hechas en el 2021: ", cancionesPP[4]["2021"]);
+console.log("Canciones hechas en el 2021: ", cancionesPP[4][2021]);
+
+console.log("Número total de elementos: " , cancionesPP.length);
+// Si contiene la canción devuelve el índice
+console.log("Contiene la canción AMG: ", cancionesPP.indexOf("AMG"));
+// si no contiene la canción devuelve un -1
+console.log("Contiene la canción AMG: ", cancionesPP.indexOf("AMGs"));
+console.log("Contiene la canción AMG: ", cancionesPP.indexOf("AMG")>-1);
+
+// -----------------------------------------------
+// Conversión de datos
+const myNumber = 420; // Minutos en la sesión JS 01
+console.log("Num. minutos en la sesión: " + myNumber);
+// toString
+const myNumberTxt = String(myNumber);
+console.log("Num. minutos en la sesión: " + myNumberTxt);
+
+// toNumber
+const myString = "420";
+const sumatoria = 80 + Number(myString);
+console.log("Valor de sumatoria: "+ sumatoria); // 500
+
+// toParseInt
+const myStringInteger = "420 5768"; 
+const sumatoriaEntera = 80 + Number(myStringInteger);
+console.log("Valor de sumatoria entera " + sumatoriaEntera); // 500
+
+// toBoolean
+const isBelicoso = "false";
+console.log(typeof isBelicoso);
+console.log(Boolean(isBelicoso));
+
+if( isBelicoso === "false" )
+    console.log("Denle su belikin");
+else
+     console.log("Abra paso a la barredora");
+
+// Boolean     
+// para que sea False, debe ser: "", 0, null, undefined, todo lo demás da true
+// Number
+// [] = 0, [30] = 30, [3,1] = NaN, false = 0, true = 1
+// String
+// []= "", [1,2]="1,2", function(){}= function(), {}= [object, object]
+
+
+
