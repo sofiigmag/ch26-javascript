@@ -310,3 +310,33 @@ console.log("Cantidad de letras p: ", ((frase) => frase.split("").filter(caracte
 
 // simplificar el código no debe hacerlo complicado para entender,
 // es mejor tener más líneas que hacerlo difícil de entender
+
+// funciones recursivas
+// Es una técnica de programación en donde la función se llama a sí misma.
+// Se debe tener precaución
+
+//const factorialConCicloFor = ( numero ){
+  //  return total;
+
+//}
+
+function factorialConCicloFor(numero){
+    let factorial = 1;
+    for (let i=1; i <= numero; i++) {
+        factorial *= i;
+    }
+    return factorial;
+}
+
+function factorialRecursivo ( numero ){
+    if( numero === 1){
+        return 1;
+    }
+    else {
+        return numero * factorialRecursivo( numero - 1);
+    }
+}
+
+
+console.log("Factorial de 5: "+ factorialConCicloFor(5));
+console.log("Factorial de 5: "+ factorialRecursivo(5));
