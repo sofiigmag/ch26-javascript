@@ -281,3 +281,32 @@ console.log("Cursos en común:", commonCourses.join(", "));
 // para 3 estudiantes
 const commonCourses3Students = cursosEnComun4(commonCourses, student3Courses);
 console.log("Cursos en común 3 estudiantes:", commonCourses3Students.join(", "));
+
+//------------Contar la cantidad de caracteres de una frase------------
+// pepe pecas pica papas con un pico y una pala
+// la cantidad de letras 'p':8
+// resolverlo usando arrow function
+
+// como lo resolvió Mario
+phrase = 'pepe pecas pica papas con un pico y una pala'
+
+const countChar = (p, phrase) => phrase.split("").filter(c => c == p).length;
+
+console.log("Cantidad de letras 'p':", countChar('p', phrase))
+
+// mi intento mix con el de Mario
+const pepePecas = "pepe pecas pica papas con un pico y una pala";
+const pepePecasArray = pepePecas.split("");
+const letrasP = pepePecasArray.filter(letra => letra === 'p').length;
+console.log("Número de p: " + letrasP);
+
+// como lo hizo Goyo
+
+const frase = "pepe pecas pica papas con un pico y una pala";
+const cuenta = (frase) => frase.split("").filter(caracter => caracter ==="p").length;
+
+console.log("Cantidad de letras p: ", cuenta(frase));
+console.log("Cantidad de letras p: ", ((frase) => frase.split("").filter(caracter => caracter ==="p").length)(frase));
+
+// simplificar el código no debe hacerlo complicado para entender,
+// es mejor tener más líneas que hacerlo difícil de entender
