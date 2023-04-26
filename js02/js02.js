@@ -329,14 +329,62 @@ function factorialConCicloFor(numero){
 }
 
 function factorialRecursivo ( numero ){
-    if( numero === 1){
+    if( numero === 1)
         return 1;
-    }
-    else {
-        return numero * factorialRecursivo( numero - 1);
-    }
+    return numero * factorialRecursivo( numero - 1);
 }
+
+// tambien se puede hacer así
+// const factorial = number => (number === 2) ? number : number * factorial(number - 1);
 
 
 console.log("Factorial de 5: "+ factorialConCicloFor(5));
 console.log("Factorial de 5: "+ factorialRecursivo(5));
+
+// -----Ejercicio-------------
+// Una función recursivo que muestre en consola
+/*
+saludo 1
+saludo 2
+saludo 3
+...
+saludo n
+
+saludo(n);
+*/
+
+/* //mi intento
+function saludoRecursivo ( numero) {
+        console.log( numero );
+        let siguienteNumero = numero + 1;
+
+        if (siguienteNumero <= numero) {
+            saludoRecursivo(siguienteNumero);
+        }
+        return `Saludo ${numero}`
+}
+ console.log(saludoRecursivo(6));
+
+ */
+
+ // Dave
+ const saludar = ( numero ) => {
+    if( numero === 1){
+        console.log("Saludo " + numero);
+    }else{
+        saludar(numero - 1)
+        console.log("Saludo " + numero);
+    };
+};
+
+saludar(10);
+
+// Fátima
+function saludo(numero) {
+    if (numero > 1) {
+      saludo(numero - 1);
+    }
+    console.log("Saludo " + numero);
+  }
+  
+  saludo(10);
