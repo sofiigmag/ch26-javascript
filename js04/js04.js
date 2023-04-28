@@ -209,6 +209,7 @@ FIFO: first input, first output
 LIFO: last input, first output
 
 */
+//Usar FIFO: Stack
 const alimentos = [];
 alimentos.push("Manzanas del lunes");
 alimentos.push("Manzanas del miércoles");
