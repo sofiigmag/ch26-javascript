@@ -41,7 +41,10 @@ console.log(dinero);
 let valorBooleano = !true;
 console.log(valorBooleano);
 
-// Operadores de incremento y decremento 
+// Operadores de incremento y decremento en una unidad
+// Operador de pre-incremento y pre-decremento
+// pre-incremento ++valor
+// pre-decremento --valor
 
 
 // Operador de post-incrmento y post-decremento
@@ -101,4 +104,150 @@ console.log( b || "Holi Crayoli" ); // "Holi Crayoli"
 console.log( NaN || "El valor es un número que se puede procesar" ) // "El valor es un número que se puede procesar"
 console.log( "false" || "El valor es false"  ); // "false"
 console.log("" || "No hay dato"); // "No hay dato"
+
+const noDefinido = true;
+console.log ( noDefinido || theBigBang );
+
+// Quiero imprimir "Estás autorizado" si la variable isOnline y isActive son true.
+
+// con if
+const isOnline = true;
+const isActive = true;
+if (isOnline == true){
+    if ( isActive ){
+        console.log("Estas autorizado");
+    }
+}
+
+// con un if pero abreviado
+if (isOnline && isActive)
+    console.log("Estas autorizado");
+
+// operador ternario
+console.log(isOnline && isActive ? "Estas Autorizado":"No estas autorizado");
+
+// con corto circuito
+console.log(isOnline && isActive && "Estas autorizado");
+
+// --------------------Operaciones relacionales--------------------
+/*
+Un operador de comparación compara sus operandos y devuelve un valor lógico en función de si la comparación es verdadera (true) o falsa (false). Los operandos pueden ser valores numéricos, de cadena, lógicos u objetos. Las cadenas se comparan según el orden lexicográfico estándar, utilizando valores Unicode. En la mayoría de los casos, si los dos operandos no son del mismo tipo, JavaScript intenta convertirlos a un tipo apropiado para la comparación. Este comportamiento generalmente resulta en comparar los operandos numéricamente.
+
+< menor que
+> mayor que
+<= menor o igual que
+>= mayor o igual que
+== igual que
+
+*/ 
+
+console.log( true == "true"); // false, porque la conversión de true a numérico es 1 y la conversión de una cadena a 
+// numérico da NaN, entonces 1 no es igual a NaN
+console.log( 23 < "40"); // True, sí se puede convertir un número escrito como string a tipo numérico, entonces
+// 23 < 40 es true
+console.log( "b" < "A" ); // false, porque en unicode el valor de las mayusculas es menor que las minúsculas
+// el unicode de A es 65, el de b es 98, entonces 98 < 65  es falso
+
+console.log( "Hola" < "HOLA"); // false, las primeras letras son igual, pero la o en una es mayúscula y en la otra es
+// minúscula 
+
+console.log( "Hola" < "123"); // false, los números son menores que las letras, H : 72, 1 : 49
+
+console.log( "Hola " < "KeHace" + 1000 ); // true, "KeHace" + 1000 se concatena a  Kehace1000 por la jerarquia de
+//operaciones, entonces se compara "Hola" < "KeHace1000" por su valor unicode H es menor que K
+
+console.log( "23" == 23 ); // true
+
+// -------------- Comparación estricta ------------------
+/*
+=== estrictamente igual, se compara el valor y el tipo
+!== estrictamente diferente, debe ser diferente en valor y tipo
+
+*/
+
+console.log( "23" === 23 ); // false
+console.log( "true" === true); // false
+console.log( "45" !== true); // true
+
+// Operador de asignación 
+const myNumber = 34; 
+
+// Desestructuración (Destructuring)
+/*
+     Es una expresión en JS que hace posible extraer datos de arreglos u objetos y nos
+     ayuda a realizar asignaciones más complejas.
+*/
+// Quiero intercambiar los datos
+let dataA = 10;
+let dataB = 20;
+console.log(`a: ${dataA}, b:${dataB} `);
+
+/* sin desestructuracion
+let temporal;
+temporal = dataA;
+dataA = dataB;
+dataB = temporal;
+console.log(`a: ${dataA}, b:${dataB} `);
+*/
+
+// con desestructuración 
+[ dataA, dataB ] = [ dataB, dataA ];
+console.log(`a: ${dataA}, b:${dataB} `);
+
+const  calificaciones = [50, 80 , 100, 30, 60, 99 ];
+// dataA = calificaciones[0]; // 50
+// dataB = calificaciones[1]; // 80
+let resto; // rest parameter
+[ dataA, , , dataB, ...resto ] = calificaciones;
+console.log(`a: ${dataA}, b:${dataB} `);
+console.log(resto)
+
+// No importa la posición solamente el nombre del atributo
+const primerAnio = {
+    dataA: "43 alumnos",
+    dataB: "50 alumnos",
+    dataC: "20 alumnos"
+};
+( {dataA, dataB} = primerAnio);
+
+console.log(`a: ${dataA}, b:${dataB} `);
+
+const auto = {
+    model: "Chevrolet",
+    year: 2023,
+    color: "red",
+    motor: "2.0"
+}
+
+// asignando el valor model del objeto auto a la constante model
+console.log("Modelo " + auto.model); // también se puede acceder con auto["model"]
+                            //inicializar con un valor por default
+// const { model, colorAuto = "Pistache"} = auto;
+                            // Asignar un nuevo nombre al atributo
+const { model, color: colorAuto } = auto;
+console.log("Modelo " + model + ", color: " + colorAuto);
+
+
+//--------ejercicio
+/*
+    Hacer una función que realice la división de 2 números y me entregue en entero el
+    cociente y residuo  
+*/
+
+// como lo hice yo pero no entendi 
+function division(a,b){
+    return ("El cociente es : " + Math.round(a/b) + " y el residuo es " + Math.round(a%b) );
+}
+console.log (division(9,5));
+
+
+// como lo hizo Goyo
+ const division2 = (numA, numB) => {
+    const cociente = parseInt(numA/numB);
+    const residuo = numA % numB;
+    return {cociente, residuo};
+ }
+
+const { cociente, residuo} = division2(9,5);
+console.log(`El resultado de 9/5, cociente: ${cociente}, residuo ${residuo}`);
 
