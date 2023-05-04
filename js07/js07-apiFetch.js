@@ -38,13 +38,15 @@ getProducts ( url );
 //---------Consumir Fetch usando async-await 
 
 const getProductsWithAwait= async (httpUrl) => {
+    try{
     const productsJson = await fetch(httpUrl);
     const products = await productsJson.json();//Conversion de JSon a objeto
     console.log(products);
 
-    for (let product of products)
-    console.log( product.title );
-
-}
+    for (let product of products) console.log(product.title);
+    } catch (error) {
+        console.error(error);
+    }
+};
 
 getProductsWithAwait ( url );
