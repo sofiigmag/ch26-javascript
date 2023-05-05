@@ -61,3 +61,43 @@ for (let dato in datosEmpleado){
 sessionStorage.setItem("datos-empleado", JSON.stringify( datosEmpleado));
 
 // Bote de lunetas
+const boteLunetas = {
+    gramaje: 20,
+    sabor: "chocolate",
+    costo: 35,
+
+    abrir:function(){
+        return "Despachar producto";
+    },
+
+    comer: function( gramosComidos){
+        return this.gramaje -= gramosComidos;
+    }
+
+}
+
+console.log("Mi bote de lunetas tiene(g) : " + boteLunetas.comer(5) ) //15
+
+const car = {
+    color: "black",
+    type: "sedan",
+    brand: "Hyundai",
+    price: 250_000,
+    /*igniteEngine: function (boolean) {
+      if (boolean === true) {
+        return "Engine is on";
+      } else {
+        return "Engine is off";
+      }
+    },
+  };*/
+    igniteEngine: (state) => state? "Engine is on": "Engine is off"
+};
+
+
+
+console.log(car.igniteEngine(true));
+console.log(car.igniteEngine(false));
+
+
+  
