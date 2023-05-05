@@ -14,7 +14,7 @@ console.log("js 07 Api Fetch");
     .catch( ); 
 
 */
-
+/*
 const url ="https://fakestoreapi.com/products";
 
 const getProducts = (httpUrl) => {
@@ -42,11 +42,35 @@ const getProductsWithAwait= async (httpUrl) => {
     const productsJson = await fetch(httpUrl);
     const products = await productsJson.json();//Conversion de JSon a objeto
     console.log(products);
-
+    localStorage.setItem("misProductos", JSON.stringify (products) ) // (key, value)
+                                         // convertir a json
     for (let product of products) console.log(product.title);
     } catch (error) {
         console.error(error);
     }
 };
+*/
 
-getProductsWithAwait ( url );
+//getProductsWithAwait ( url );
+
+// -----------------Realizar una solicitud POST-----
+
+const postUser= (url, userData) => {
+    fetch( url, {
+        method: 'POST', // PUT o DELETE
+        body: JSON.stringify(userData) , // los datos del usuario, conversión Obj->JSON
+        headers: { 'Content-Type': 'application/json'}
+    })
+        .then((response)=> response.json() )
+        .then((register)=> console.log(register) )
+        .catch((error)=>{console.log (error)});
+}
+
+const user = {
+    name: "dogface",
+    job: "leader"
+};
+
+const urlPOST = "https://reqres.in/api/users";
+
+postUser( urlPOST, user );
